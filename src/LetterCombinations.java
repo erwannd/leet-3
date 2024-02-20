@@ -2,7 +2,27 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Given a string containing digits from 2-9 inclusive,
+ * return all possible letter combinations that the number could represent.
+ * Return the answer in any order.
+
+ * Example1:
+ *      Input: digits = "23"
+ *      Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+ * Example 2:
+ *      Input: digits = ""
+ *      Output: []
+
+ * Example 3:
+ *      Input: digits = "2"
+ *      Output: ["a","b","c"]
+ */
 public class LetterCombinations {
+    /**
+     * A mapping of a digit to their letters in a phone.
+     */
     static HashMap<Character, String> letters = new HashMap<>();
 
     static HashMap<String, List<String>> memo = new HashMap<>();
@@ -41,9 +61,7 @@ public class LetterCombinations {
 
         int mid = (start + end) / 2;
         List<String> leftSubstr = letterCombinations(digits, start, mid);
-        // System.out.printf("left substring: %s\n", leftSubstr);
         List<String> rightSubstr = letterCombinations(digits, mid + 1, end);
-        // System.out.printf("right substring: %s\n", rightSubstr);
         List<String> result = combineSubstring(leftSubstr, rightSubstr);
         memo.put(substr, result);
         return result;

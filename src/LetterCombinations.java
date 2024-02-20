@@ -64,6 +64,7 @@ public class LetterCombinations {
     public static void main(String[] args) {
         LetterCombinations lcm = new LetterCombinations();
         System.out.println(letters.get('2'));
-        System.out.println(lcm.letterCombinations(""));
+        System.out.println(lcm.letterCombinations("23456"));
+        System.out.println(memo);
     }
 }
